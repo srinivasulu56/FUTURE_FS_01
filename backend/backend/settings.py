@@ -8,11 +8,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-default-secret-key")
 
 DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'portfolio-backend.onrender.com',  # Replace this with your actual Render backend URL
-]
+RENDER = os.getenv("RENDER")
+
+if RENDER:
+    ALLOWED_HOSTS = ['.onrender.com']
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',

@@ -13,3 +13,5 @@ services:
         value: srinivasulusachu2005@gmail.com
       - key: EMAIL_HOST_PASSWORD
         sync: false
+      - key: RENDER
+        value: TRUE
