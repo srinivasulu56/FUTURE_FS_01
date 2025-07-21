@@ -22,7 +22,7 @@ const Contact = () => {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/feedback/", {
+      const response = await fetch("https://future-fs-01-3.onrender.com/api/feedback/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,6 +38,8 @@ const Contact = () => {
         setEmail("");
         setMessage("");
       } else {
+        const errorData = await response.json();
+        console.error("Server response:", errorData);
         setStatus("Failed to send message.");
       }
     } catch (error) {
